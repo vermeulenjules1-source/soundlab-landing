@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portes ouvertes le 22 novembre — Sound Lab</title>
+  <meta name="description" content="Portes ouvertes Sound Lab le dimanche 22 novembre : viens mixer sur nos platines, rencontrer les profs et les étudiants, tout savoir sur la formation DJ en 3 ans.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="portes-ouvertes.css">
+</head>
+<body class="po">
+
+  <header class="nav">
+    <a href="index.html" class="logo" aria-label="Sound Lab, accueil">
+      <span class="logo-main">SOUND LAB</span>
+      <span class="logo-sub">École de DJing</span>
+    </a>
+    <a href="#reserver" class="btn btn-small">Je réserve</a>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="po-hero">
+      <div class="po-hero-text">
+        <p class="eyebrow po-in" style="--d:0"><span class="tri" aria-hidden="true"></span>Portes ouvertes</p>
+        <h1 class="po-title">
+          <span class="po-line po-in" style="--d:1">Monte</span>
+          <span class="po-line po-in" style="--d:2">le son<span class="po-dot">.</span></span>
+        </h1>
+        <p class="po-date po-in" style="--d:3">
+          <span class="po-date-day">Dim.</span>
+          <span class="po-date-num">22</span>
+          <span class="po-date-month">novembre</span>
+        </p>
+        <p class="po-sub po-in" style="--d:4">Viens poser tes mains sur nos platines, rencontrer l'équipe et voir à quoi ressemble ton avenir de DJ.</p>
+        <div class="po-actions po-in" style="--d:5">
+          <a href="#reserver" class="btn po-pulse">Je réserve ma place</a>
+          <a href="#programme" class="po-link">Voir le programme ↓</a>
+        </div>
+      </div>
+
+      <!-- Platine animée (SVG original, couleurs DA) -->
+      <div class="po-deck po-in" style="--d:2">
+        <svg viewBox="0 0 400 400" role="img" aria-label="Illustration d'une platine vinyle qui tourne">
+          <rect x="6" y="6" width="388" height="388" rx="44" fill="#0f1633" stroke="#f8602b" stroke-width="4"/>
+          <g class="po-vinyl">
+            <circle cx="180" cy="200" r="140" fill="#f8602b"/>
+            <circle cx="180" cy="200" r="118" fill="none" stroke="#081d3f" stroke-width="2" opacity=".35"/>
+            <circle cx="180" cy="200" r="98" fill="none" stroke="#081d3f" stroke-width="2" opacity=".35"/>
+            <circle cx="180" cy="200" r="78" fill="none" stroke="#081d3f" stroke-width="2" opacity=".35"/>
+            <circle cx="180" cy="200" r="44" fill="#081d3f"/>
+            <path d="M180 162 A38 38 0 0 1 218 200" fill="none" stroke="#f8602b" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="180" cy="200" r="7" fill="#ffffff"/>
+          </g>
+          <g class="po-arm">
+            <circle cx="350" cy="60" r="16" fill="#09254a" stroke="#ffffff" stroke-width="3"/>
+            <path d="M350 60 L340 230 L290 268" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="272" y="258" width="30" height="18" rx="4" fill="#ffffff" transform="rotate(-36 287 267)"/>
+          </g>
+          <g class="po-eq" fill="#ffffff">
+            <rect x="330" y="290" width="10" height="70" rx="3"/>
+            <rect x="346" y="290" width="10" height="70" rx="3"/>
+            <rect x="362" y="290" width="10" height="70" rx="3"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- BANDEAU DÉFILANT -->
+    <div class="po-marquee-wrap" aria-hidden="true">
+    <div class="po-marquee">
+      <div class="po-marquee-track">
+        <span>Portes ouvertes</span><span class="tri"></span>
+        <span>Dimanche 22 novembre</span><span class="tri"></span>
+        <span>Apprendre. Créer. Performer.</span><span class="tri"></span>
+        <span>Entrée libre</span><span class="tri"></span>
+        <span>Portes ouvertes</span><span class="tri"></span>
+        <span>Dimanche 22 novembre</span><span class="tri"></span>
+        <span>Apprendre. Créer. Performer.</span><span class="tri"></span>
+        <span>Entrée libre</span><span class="tri"></span>
+      </div>
+    </div>
+    </div>
+
+    <!-- COMPTE À REBOURS -->
+    <section class="po-countdown po-reveal" aria-label="Compte à rebours jusqu'aux portes ouvertes">
+      <p class="eyebrow"><span class="tri" aria-hidden="true"></span>Plus que</p>
+      <div class="po-timer" data-target="2026-11-22T10:00:00+01:00">
+        <div><span class="po-timer-num" data-unit="d">--</span><span>jours</span></div>
+        <div><span class="po-timer-num" data-unit="h">--</span><span>heures</span></div>
+        <div><span class="po-timer-num" data-unit="m">--</span><span>min</span></div>
+        <div><span class="po-timer-num" data-unit="s">--</span><span>sec</span></div>
+      </div>
+    </section>
+
+    <!-- PROGRAMME -->
+    <section class="po-programme" id="programme">
+      <h2 class="po-h2 po-reveal">Au programme</h2>
+      <div class="po-cards">
+        <article class="card card-orange po-reveal">
+          <span class="po-time">10h</span>
+          <h3>Prends les platines</h3>
+          <p>Ateliers d'initiation au mix en petits groupes, encadrés par nos profs. Aucun niveau requis.</p>
+        </article>
+        <article class="card card-outline po-reveal">
+          <span class="po-time">12h</span>
+          <h3>Sets des étudiants</h3>
+          <p>Nos élèves de 2<sup>e</sup> et 3<sup>e</sup> année montent sur scène. Viens sentir l'énergie de l'école.</p>
+        </article>
+        <article class="card card-outline po-reveal">
+          <span class="po-time">14h</span>
+          <h3>Visite des studios</h3>
+          <p>Cabines de mix, studios de prod, salle de scène : tu découvres là où tu vas apprendre.</p>
+        </article>
+        <article class="card card-orange po-reveal">
+          <span class="po-time">16h</span>
+          <h3>Tes questions, nos réponses</h3>
+          <p>Admissions, alternance, stages, débouchés : l'équipe pédagogique te répond en direct.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CHIFFRES -->
+    <section class="po-stats po-reveal">
+      <h2 class="po-h2">Pourquoi venir ?</h2>
+      <div class="stats">
+        <div class="stat"><span class="stat-num" data-count="1550" data-format="space">0</span><span>diplômés depuis 2012</span></div>
+        <div class="stat"><span class="stat-num" data-count="82" data-suffix=" %">0</span><span>des diplômés exercent une activité DJ</span></div>
+        <div class="stat"><span class="stat-num" data-count="40" data-suffix="+">0</span><span>entreprises partenaires</span></div>
+      </div>
+      <ul class="po-facts">
+        <li>3 ans de formation</li>
+        <li>60 % de pratique</li>
+        <li>2 stages obligatoires</li>
+        <li>Alternance possible</li>
+      </ul>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="po-cta po-reveal" id="reserver">
+      <p class="eyebrow"><span class="tri" aria-hidden="true"></span>22 novembre · 10h – 17h</p>
+      <h2>On t'attend<br>derrière les platines.</h2>
+      <p>Entrée libre, mais on préfère savoir que tu viens. Réserve ton créneau d'atelier en un clic.</p>
+      <div class="po-actions">
+        <a href="mailto:contact@soundlabschool.fr?subject=R%C3%A9servation%20portes%20ouvertes%20du%2022%20novembre" class="btn btn-dark po-pulse">Je réserve ma place</a>
+        <button type="button" class="po-link po-link-dark" id="po-ics">+ Ajouter à mon agenda</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- CTA collant mobile -->
+  <a href="#reserver" class="po-sticky btn" aria-hidden="true" tabindex="-1">22 nov. · Je réserve</a>
+
+  <footer class="footer">
+    <p>www.soundlabschool.fr</p>
+  </footer>
+
+  <script src="portes-ouvertes.js" defer></script>
+</body>
+</html>
