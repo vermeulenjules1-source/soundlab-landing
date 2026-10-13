@@ -70,6 +70,93 @@ if (sticky && hero && finalCta) {
   new IntersectionObserver(([e]) => { onCta = e.isIntersecting; refresh(); }).observe(finalCta);
 }
 
+// ----- Carrousel en pile de cartes : flèches, points, swipe (doigt ou souris), clavier, défilement auto -----
+const carousel = document.querySelector(".po-carousel");
+if (carousel) {
+  const stack = carousel.querySelector(".po-stack");
+  const cards = [...stack.querySelectorAll(".po-card")];
+  const vinyl = carousel.querySelector(".po-vinyl-badge");
+  const n = cards.length;
+  let current = 0;
+  let turns = 0;
+
+  const dots = cards.map((_, i) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.setAttribute("role", "tab");
+    b.setAttribute("aria-label", `Photo ${i + 1} sur ${n}`);
+    b.addEventListener("click", () => { show(i, i > current ? 1 : -1); restart(); });
+    carousel.querySelector(".po-dots").appendChild(b);
+    return b;
+  });
+
+  function layout() {
+    cards.forEach((card, i) => {
+      const k = (i - current + n) % n;
+      card.style.setProperty("--k", k);
+      card.classList.toggle("is-front", k === 0);
+      card.setAttribute("aria-hidden", String(k !== 0));
+    });
+    dots.forEach((d, i) => d.setAttribute("aria-selected", String(i === current)));
+  }
+
+  function show(i, dir) {
+    const next = (i + n) % n;
+    if (next === current) return;
+    if (dir > 0 && !reduceMotion) {
+      // la carte de devant s'envole à gauche puis repasse derrière la pile
+      const leaving = cards[current];
+      leaving.classList.add("is-out");
+      setTimeout(() => leaving.classList.remove("is-out"), 380);
+    }
+    current = next;
+    turns += dir;
+    vinyl.style.setProperty("--spin", `${turns * 360}deg`);
+    layout();
+  }
+  const nextSlide = () => show(current + 1, 1);
+  const prevSlide = () => show(current - 1, -1);
+
+  carousel.querySelector(".po-next").addEventListener("click", () => { nextSlide(); restart(); });
+  carousel.querySelector(".po-prev").addEventListener("click", () => { prevSlide(); restart(); });
+  stack.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") { nextSlide(); restart(); }
+    if (e.key === "ArrowLeft") { prevSlide(); restart(); }
+  });
+
+  // Swipe : glisser vers la gauche = photo suivante
+  let startX = null;
+  stack.addEventListener("pointerdown", (e) => {
+    startX = e.clientX;
+    stack.classList.add("is-dragging");
+    stop();
+  });
+  const endSwipe = (e) => {
+    if (startX === null) return;
+    const dx = e.clientX - startX;
+    startX = null;
+    stack.classList.remove("is-dragging");
+    if (dx < -40) nextSlide();
+    else if (dx > 40) prevSlide();
+    restart();
+  };
+  stack.addEventListener("pointerup", endSwipe);
+  stack.addEventListener("pointercancel", endSwipe);
+  stack.addEventListener("pointerleave", endSwipe);
+
+  // Défilement auto, en pause au survol ou quand l'onglet est caché
+  let timer = null;
+  function start() { if (!reduceMotion && !timer) timer = setInterval(nextSlide, 4500); }
+  function stop() { clearInterval(timer); timer = null; }
+  function restart() { stop(); start(); }
+  carousel.addEventListener("mouseenter", stop);
+  carousel.addEventListener("mouseleave", start);
+  document.addEventListener("visibilitychange", () => (document.hidden ? stop() : start()));
+
+  layout();
+  start();
+}
+
 // ----- Ajouter à l'agenda (.ics) -----
 document.getElementById("po-ics")?.addEventListener("click", () => {
   const ics = [

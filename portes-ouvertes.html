@@ -8,14 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="portes-ouvertes.css">
+  <link rel="stylesheet" href="style.css?v=6">
+  <link rel="stylesheet" href="portes-ouvertes.css?v=6">
 </head>
 <body class="po">
 
   <header class="nav">
     <a href="index.html" class="logo" aria-label="Sound Lab, accueil">
-      <img src="img/logo-soundlab-blanc.png" alt="Sound Lab, école de DJing" width="1478" height="725">
+      <img src="img/logo-soundlab-blanc.png" alt="Sound Lab, école de DJing" width="130" height="64">
     </a>
     <a href="#reserver" class="btn btn-small">Je réserve</a>
   </header>
@@ -40,30 +40,37 @@
         </div>
       </div>
 
-      <!-- Platine animée (SVG original, couleurs DA) -->
-      <div class="po-deck po-in" style="--d:2">
-        <svg viewBox="0 0 400 400" role="img" aria-label="Illustration d'une platine vinyle qui tourne">
-          <rect x="6" y="6" width="388" height="388" rx="44" fill="#0f1633" stroke="#f8602b" stroke-width="4"/>
-          <g class="po-vinyl">
-            <circle cx="180" cy="200" r="140" fill="#f8602b"/>
-            <circle cx="180" cy="200" r="118" fill="none" stroke="#081d3f" stroke-width="2" opacity=".35"/>
-            <circle cx="180" cy="200" r="98" fill="none" stroke="#081d3f" stroke-width="2" opacity=".35"/>
-            <circle cx="180" cy="200" r="78" fill="none" stroke="#081d3f" stroke-width="2" opacity=".35"/>
-            <circle cx="180" cy="200" r="44" fill="#081d3f"/>
-            <path d="M180 162 A38 38 0 0 1 218 200" fill="none" stroke="#f8602b" stroke-width="6" stroke-linecap="round"/>
-            <circle cx="180" cy="200" r="7" fill="#ffffff"/>
-          </g>
-          <g class="po-arm">
-            <circle cx="350" cy="60" r="16" fill="#09254a" stroke="#ffffff" stroke-width="3"/>
-            <path d="M350 60 L340 230 L290 268" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="272" y="258" width="30" height="18" rx="4" fill="#ffffff" transform="rotate(-36 287 267)"/>
-          </g>
-          <g class="po-eq" fill="#ffffff">
-            <rect x="330" y="290" width="10" height="70" rx="3"/>
-            <rect x="346" y="290" width="10" height="70" rx="3"/>
-            <rect x="362" y="290" width="10" height="70" rx="3"/>
-          </g>
-        </svg>
+      <!-- Carrousel en pile de cartes (photos étudiants) + vinyle qui tourne à chaque changement -->
+      <div class="po-carousel po-in" style="--d:2" aria-roledescription="carrousel" aria-label="Nos étudiants en images">
+        <button type="button" class="po-nav po-prev" aria-label="Photo précédente">‹</button>
+        <div class="po-stack" tabindex="0" aria-live="polite">
+          <figure class="po-card">
+            <img src="img/carrousel/etudiant-1.jpg" alt="DJ sur scène sous un projecteur rouge" width="1200" height="900" draggable="false">
+            <figcaption>Sets étudiants</figcaption>
+          </figure>
+          <figure class="po-card">
+            <img src="img/carrousel/etudiant-2.jpg" alt="DJ qui mixe devant une lumière rouge" width="1200" height="900" draggable="false">
+            <figcaption>Ateliers mix</figcaption>
+          </figure>
+          <figure class="po-card">
+            <img src="img/carrousel/etudiant-3.jpg" alt="DJ qui mixe pendant une soirée" width="1200" height="900" draggable="false">
+            <figcaption>Studios équipés</figcaption>
+          </figure>
+          <figure class="po-card">
+            <img src="img/carrousel/etudiant-4.jpg" alt="DJ sur scène dans la fumée et les lumières rouges" width="1200" height="900" draggable="false">
+            <figcaption>Événements partenaires</figcaption>
+          </figure>
+          <svg class="po-vinyl-badge" viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="50" r="48" fill="#081d3f"/>
+            <circle cx="50" cy="50" r="40" fill="none" stroke="#ffffff" stroke-width="1.5" opacity=".25"/>
+            <circle cx="50" cy="50" r="32" fill="none" stroke="#ffffff" stroke-width="1.5" opacity=".25"/>
+            <circle cx="50" cy="50" r="18" fill="#f8602b"/>
+            <path d="M50 36 A14 14 0 0 1 64 50" fill="none" stroke="#081d3f" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="50" cy="50" r="3.5" fill="#ffffff"/>
+          </svg>
+        </div>
+        <button type="button" class="po-nav po-next" aria-label="Photo suivante">›</button>
+        <div class="po-dots" role="tablist" aria-label="Choisir une photo"></div>
       </div>
     </section>
 
@@ -154,8 +161,9 @@
 
   <footer class="footer">
     <p>www.soundlabschool.fr</p>
+    <p class="po-credits">Photos : Unsplash</p>
   </footer>
 
-  <script src="portes-ouvertes.js" defer></script>
+  <script src="portes-ouvertes.js?v=6" defer></script>
 </body>
 </html>
