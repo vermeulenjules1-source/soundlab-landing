@@ -295,7 +295,10 @@
 
 /* ----- Desktop ----- */
 @media (min-width: 800px) {
-  .po-hero { grid-template-columns: 1.15fr 1fr; padding-top: 32px; }
+  .po-hero { grid-template-columns: 1fr 1.15fr; padding-top: 32px; }
+  .po-carousel { max-width: 720px; margin: 0 0 0 auto; }
+  .po-title { font-size: clamp(4rem, 7.6vw, 7.5rem); }
+  .po-line { white-space: nowrap; }
   .po-hero-text { text-align: left; }
   .po-hero-text .eyebrow { justify-content: flex-start; }
   .po-date { align-items: flex-start; }
@@ -308,6 +311,11 @@
 }
 
 /* ----- Accessibilité : mouvement réduit ----- */
+/* Grand écran : le carrousel déborde un peu vers la droite */
+@media (min-width: 1200px) {
+  .po-carousel { margin-right: -40px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: .01ms !important;
